@@ -21,5 +21,5 @@ Para executar o Web API, siga as instruções abaixo:
 1. Clone este repositório para o seu ambiente de desenvolvimento.
 
    ```bash
-   git clone [https://github.com/seu-usuario/ORMJava.Net.git](https://github.com/manuel-joao2023/ORMJava.Net.git)https://github.com/manuel-joao2023/ORMJava.Net.git
+   git clone https://github.com/manuel-joao2023/ORMJava.Net.git
 
