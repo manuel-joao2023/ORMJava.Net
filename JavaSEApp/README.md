@@ -13,7 +13,7 @@ Certifique-se de ter o [Java Development Kit (JDK)](https://www.oracle.com/java/
 1. Clone este repositório para o seu ambiente de desenvolvimento.
 
    ```bash
-   git clone [https://github.com/seu-usuario/ORMJava.Net.git](https://github.com/manuel-joao2023/ORMJava.Net.git)
+   git clone https://github.com/manuel-joao2023/ORMJava.Net.git
 
 2. Navegue até o diretório clonado.
 3. cd src
