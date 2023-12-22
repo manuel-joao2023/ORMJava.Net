@@ -1,0 +1,26 @@
+# Ignore arquivos temporários e pastas de compilação
+bin/
+out/
+build/
+
+# Ignore arquivos de configuração específicos do Eclipse
+.classpath
+.project
+
+# Ignore arquivos do IntelliJ IDEA
+.idea/
+
+# Ignore arquivos de dependências e bibliotecas
+lib/
+
+# Ignore arquivos específicos do projeto
+*.iml
+
+# Ignore arquivos de configuração do Maven
+target/
+
+# Ignore arquivos de logs e dados
+*.log
+*.swp
+Thumbs.db
+Desktop.ini
