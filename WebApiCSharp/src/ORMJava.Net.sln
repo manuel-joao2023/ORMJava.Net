@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORMJava.Net", "ORMJava.Net.csproj", "{A3C3C31D-3191-48E1-B7AB-63B581BB7A2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Databases", "..\Databases\Databases.csproj", "{C9B906D1-0A74-4C95-B64C-1603DD8D6A2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3C3C31D-3191-48E1-B7AB-63B581BB7A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C3C31D-3191-48E1-B7AB-63B581BB7A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C3C31D-3191-48E1-B7AB-63B581BB7A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C3C31D-3191-48E1-B7AB-63B581BB7A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B906D1-0A74-4C95-B64C-1603DD8D6A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B906D1-0A74-4C95-B64C-1603DD8D6A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B906D1-0A74-4C95-B64C-1603DD8D6A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B906D1-0A74-4C95-B64C-1603DD8D6A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F626615E-983E-4CF5-B37B-BCD4512E7F97}
+	EndGlobalSection
+EndGlobal
