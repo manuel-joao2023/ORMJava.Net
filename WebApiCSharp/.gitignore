@@ -1,0 +1,35 @@
+# Ignore arquivos temporários e pastas de compilação
+bin/
+obj/
+
+# Ignore arquivos de configuração específicos do Visual Studio
+.vscode/
+.vs/
+
+# Ignore arquivos de dependências e pacotes
+packages/
+*.user
+*.suo
+*.sln.docstates
+
+# Ignore o arquivo de configuração do aplicativo
+appsettings.json
+
+# Ignore arquivos específicos do projeto
+*.csproj.user
+*.bak
+*.vspscc
+*.vssscc
+*.pidb
+*.svclog
+*.metaproj
+*mslog
+
+# Ignore arquivos do Visual Studio Code
+.vscode/
+
+# Ignore arquivos de logs e dados
+*.log
+*.swp
+Thumbs.db
+Desktop.ini
