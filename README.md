@@ -26,7 +26,22 @@ Bem-vindo ao ORMJava.Net, uma ferramenta inovadora que simplifica o mapeamento o
 1. Clone este repositório para o seu ambiente de desenvolvimento.
 
    ```bash
-   git clone https://github.com/seu-usuario/ORMJava.Net.git
+   git clone https://github.com/manuel-joao2023/ORMJava.Net.git
+   
+
+2. Rodar a aplicação JavaSe
+3. Após rodar a tela inicial
+
+   ![image](https://github.com/manuel-joao2023/ORMJava.Net/assets/134264511/616ad93e-41de-4faa-86e1-8bfe11b4fa61)
+
+4. Rodar a aplicação WebApi
+   <img width="946" alt="image" src="https://github.com/manuel-joao2023/ORMJava.Net/assets/134264511/5e420ceb-d875-4f3e-a8a8-491628457b82">
+
+
+5. Carregar um Domain (*.Jar/dll)
+6. Espicificações do Domain
+7. Deve existir 1 atributo Id/id para a chave primaria 
+
 
 
 ## Contribuições
