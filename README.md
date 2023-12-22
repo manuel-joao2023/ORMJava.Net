@@ -1,5 +1,3 @@
-# ORMJava.Net
-
 # ORMJava.Net - Mapeamento Objeto-Relacional para Java e .NET
 
 ## Descrição
