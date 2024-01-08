@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Newtonsoft.Json;
 
 namespace Databases {
@@ -13,16 +14,19 @@ namespace Databases {
                 case "Postgres":
                     options = new DbContextOptionsBuilder<GlobalContext>()
                             .UseNpgsql($"{conection}")
+                            .ReplaceService<IModelCacheKeyFactory, DynamicModelCacheKeyFactory>()
                             .Options;
                     break;
                 case "Mysql":
                     options = new DbContextOptionsBuilder<GlobalContext>()
                             .UseMySQL($"{conection}")
+                            .ReplaceService<IModelCacheKeyFactory, DynamicModelCacheKeyFactory>()
                             .Options;
                     break;
                 case "SQLServer":
                     options = new DbContextOptionsBuilder<GlobalContext>()
                             .UseSqlServer($"{conection}")
+                            .ReplaceService<IModelCacheKeyFactory, DynamicModelCacheKeyFactory>()
                             .Options;
                     break;
                 default:

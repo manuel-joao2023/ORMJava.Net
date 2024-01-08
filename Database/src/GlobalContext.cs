@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Reflection;
 
 namespace Databases {
@@ -18,5 +19,11 @@ namespace Databases {
 
 
         }
+    }
+    public class DynamicModelCacheKeyFactory : IModelCacheKeyFactory {
+        public object Create(DbContext context, bool designTime)
+            => context is GlobalContext dynamicContext
+                ? (context.GetType(), dynamicContext.ContextId.GetHashCode(), designTime)
+                : (object)context.GetType();
     }
 }
