@@ -47,7 +47,7 @@ namespace ORMJava.Net.Controllers {
             var diretorioDestino = @"Files";
 
             List<string> classes = GetClassesByBytes(generateDTO,diretorioDestino);
-
+            await Task.Delay(1000);
             var resultado = Refactor(generateDTO);
             var types = GetTypesByClass(classes);
            
