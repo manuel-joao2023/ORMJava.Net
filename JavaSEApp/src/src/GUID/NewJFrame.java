@@ -329,23 +329,28 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnAddFileActionPerformed
 
     private void GetFileSelected() {
-        fileRoot = jFileChooser2.getSelectedFile();
-        root = new DefaultMutableTreeNode(fileRoot.getName());
-        DefaultTreeModel model = new DefaultTreeModel(root);
-        jTree1.setModel(model);
-        generateByte(fileRoot);
+        if (jFileChooser2.getSelectedFile() != null) {
+            fileRoot = jFileChooser2.getSelectedFile();
+            root = new DefaultMutableTreeNode(fileRoot.getName());
+            DefaultTreeModel model = new DefaultTreeModel(root);
+            jTree1.setModel(model);
+            generateByte(fileRoot);
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhum ficheiro adicionado");
+        }
+
     }
 
-    private void generateByte(File file){
+    private void generateByte(File file) {
         bytes = new byte[(int) file.length()];
         try (FileInputStream fis = new FileInputStream(file)) {
             fis.read(bytes);
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
-    
-    
+
+
     private void jFileChooser2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFileChooser2ActionPerformed
@@ -388,11 +393,15 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             ConectionTesteDTO conectionDto = refactorDTO();
-            String resposta = Conection.RequestConectionApiPost(null, conectionDto, Emuns.TESTCONECTION);
-            boolean resp = Boolean.parseBoolean(resposta);
-            JOptionPane.showMessageDialog(null, resp ? "Teste efectuado com sucesso !"
-                    : "Não foi possivel se conectar, verifique se a base de dados existe ou a password", "Status",
-                    resp ? JOptionPane.INFORMATION_MESSAGE : JOptionPane.ERROR_MESSAGE);
+            if (validarCampos()) {
+                String resposta = Conection.RequestConectionApiPost(null, conectionDto, Emuns.TESTCONECTION);
+                boolean resp = Boolean.parseBoolean(resposta);
+                JOptionPane.showMessageDialog(null, resp ? "Teste efectuado com sucesso !"
+                        : "Não foi possivel se conectar, verifique se a base de dados existe ou a password", "Status",
+                        resp ? JOptionPane.INFORMATION_MESSAGE : JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Precisa preencher os campos", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -403,19 +412,25 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             boolean isJar = false;
-            
+            if (fileRoot == null) {
+                JOptionPane.showMessageDialog(null, "Nenhum ficheiro foi adicionado", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             if (fileRoot.getName().contains("jar")) {
                 File file = new File("Files.zip");
                 isJar = true;
                 generateByte(file);
             }
             ConectionTesteDTO conectionDto = refactorDTO();
-
-            String resposta = Conection.RequestConectionApiPost(null, conectionDto, isJar ? Emuns.GenerateDatabaseByJar : Emuns.GenerateDatabase);
-            boolean resp = Boolean.parseBoolean(resposta);
-            JOptionPane.showMessageDialog(null, resp ? "Base de dados criada com sucesso !"
-                    : "Erro ao criar a base de dados", "Status",
-                    resp ? JOptionPane.INFORMATION_MESSAGE : JOptionPane.ERROR_MESSAGE);
+            if (validarCampos()) {
+                String resposta = Conection.RequestConectionApiPost(null, conectionDto, isJar ? Emuns.GenerateDatabaseByJar : Emuns.GenerateDatabase);
+                boolean resp = Boolean.parseBoolean(resposta);
+                JOptionPane.showMessageDialog(null, resp ? "Base de dados criada com sucesso !"
+                        : "Erro ao criar a base de dados", "Status",
+                        resp ? JOptionPane.INFORMATION_MESSAGE : JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Precisa preencher os campos", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -425,7 +440,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-         jPasswordField1.setEchoChar(jCheckBox1.isSelected() ? '\0' : '*');
+        jPasswordField1.setEchoChar(jCheckBox1.isSelected() ? '\0' : '*');
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private ConectionTesteDTO refactorDTO() {
@@ -438,6 +453,16 @@ public class NewJFrame extends javax.swing.JFrame {
                 Sgbd,
                 bytes
         );
+    }
+
+    private boolean validarCampos() {
+        if (jTfDatabase.getText() != null
+                && jTfPorta.getText() != null
+                && jTfServer.getText() != null
+                && jTfUsuario.getText() != null) {
+            return true;
+        }
+        return false;
     }
 
     /**
